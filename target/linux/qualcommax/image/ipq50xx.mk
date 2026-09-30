@@ -287,6 +287,22 @@ define Device/tplink_eap650-outdoor-v1
 endef
 TARGET_DEVICES += tplink_eap650-outdoor-v1
 
+define Device/ubnt_u6-enterprise
+	$(call Device/FitImage)
+	DEVICE_VENDOR := Ubiquiti
+	DEVICE_MODEL := UniFi U6 Enterprise
+	DEVICE_ALT0_VENDOR := Ubiquiti
+	DEVICE_ALT0_MODEL := U6-Enterprise
+	SOC := ipq5018
+	DEVICE_DTS_CONFIG := config@a654
+	DEVICE_PACKAGES := ath11k-firmware-ipq5018 \
+		kmod-ath11k-pci \
+		ath11k-firmware-qcn9074
+	# RAM-boot only until the eMMC install flow is proven on hardware.
+	IMAGES :=
+endef
+TARGET_DEVICES += ubnt_u6-enterprise
+
 define Device/xiaomi_ipq50xx_ax_base
 	$(call Device/FitImage)
 	$(call Device/UbiFit)
