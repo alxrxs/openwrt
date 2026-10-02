@@ -22,3 +22,8 @@ CONFIG_QCOM_Q6V5_MPD=y
 CONFIG_QCOM_Q6V5_WCSS_SEC=y
 CONFIG_QCOM_TMEL_QMP_MAILBOX=y
 CONFIG_SPI_QPIC_SNAND=y
+# Debian userspace (systemd; devtmpfs via CONFIG_KERNEL_DEVTMPFS) on this kernel, and the vendor command line the
+# IPQ5018 Wi-Fi user PD needs (coherent_pool: its DMA segments exceed 256K).
+CONFIG_AUTOFS_FS=y
+CONFIG_CMDLINE="console=ttyMSM0,115200n8 panic=10 coherent_pool=2M"
+CONFIG_CMDLINE_FORCE=y
